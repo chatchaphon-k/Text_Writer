@@ -17,6 +17,8 @@ public class Writer_Text
 
     protected BufferedWriter fileWriter;
 
+    // <editor-fold defaultstate="collapsed" desc="Initialization">
+
     public Writer_Text(){}
 
     public Writer_Text(String path2output, String ext) throws FileNotFoundException
@@ -29,6 +31,8 @@ public class Writer_Text
         ext = (ext.isEmpty()) ? OutputExt.txt.name() : ext.replaceAll(".", "");
         fileWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(path2output + "." + ext)));
     }
+
+    // </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Write Data">
 
