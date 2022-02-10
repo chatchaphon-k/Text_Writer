@@ -28,7 +28,10 @@ public class Writer_Text
 
     protected void init(String path2output, String ext) throws FileNotFoundException
     {
-        ext = (ext.isEmpty()) ? OutputExt.txt.name() : ext.replaceAll(".", "");
+        if(ext.isEmpty())
+            ext = "." + OutputExt.txt.name();
+        else if(!ext.startsWith("."))
+            ext = "." + ext;
         fileWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(path2output + "." + ext)));
     }
 
@@ -73,7 +76,15 @@ public class Writer_Text
     }
 
     // </editor-fold>
-    
+
+    protected void close(String closed_msg) throws IOException
+    {
+        if(closed_msg.isEmpty())
+            closed_msg = "\tGenerate to text file successful";
+        fileWriter.close();
+        System.out.println(closed_msg);
+    }
+
     // <editor-fold defaultstate="collapsed" desc="Example codes">
 
 //    Generate a new text file everytime you called
