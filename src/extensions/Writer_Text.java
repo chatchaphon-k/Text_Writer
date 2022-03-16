@@ -32,7 +32,7 @@ public class Writer_Text
             ext = "." + OutputExt.txt.name();
         else if(!ext.startsWith("."))
             ext = "." + ext;
-        fileWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(path2output + "." + ext)));
+        fileWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(path2output + ext)));
     }
 
     // </editor-fold>
