@@ -32,7 +32,7 @@ public class Writer_Text
             ext = "." + OutputExt.txt.name();
         else if(!ext.startsWith("."))
             ext = "." + ext;
-        fileWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(path2output + "." + ext)));
+        fileWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(path2output + ext)));
     }
 
     // </editor-fold>
@@ -77,12 +77,17 @@ public class Writer_Text
 
     // </editor-fold>
 
-    protected void close(String closed_msg) throws IOException
+    protected void close(String closed_msg, int total_tab) throws IOException
     {
         if(closed_msg.isEmpty())
-            closed_msg = "\tGenerate to text file successful";
+            closed_msg = "- Generate text file successful";
+
+        String tab = "";
+        for(int i = 0; i < total_tab; i++)
+             tab += "\t";
+
         fileWriter.close();
-        System.out.println(closed_msg);
+        System.out.println(tab + closed_msg);
     }
 
     // <editor-fold defaultstate="collapsed" desc="Example codes">
